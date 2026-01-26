@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const connectDB = require('./database/db');
 const productRoutes = require('./routes/product-routes');
-
+const bookRoutes = require('./routes/book-routes');
 
 const app = express();
 
@@ -18,9 +18,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', productRoutes);
-
+app.use('/api/books', bookRoutes);
 // start the server
 const port = process.env.PORT || 3000;
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
